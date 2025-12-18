@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Organizer — Presentation</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body class="presentation-page">
+  <nav class="topbar">
+    <div class="nav-links">
+  <a href="/static/index.html">Home</a>
+      <a href="/presentation" class="active">Presentation</a>
+      <a href="/presentation/callers" data-visible-for="admin,caller">Caller Board</a>
+    </div>
+    <div class="nav-links">
+      <a href="#" id="logoutLink">Logout</a>
+    </div>
+  </nav>
+  <div class="container presentation-container" id="presentationContainer">
+    <div class="presentation-controls">
+      <div class="presentation-controls-left">
+        <label for="roomSelect" class="presentation-label">Select Room</label>
+        <select id="roomSelect" class="presentation-room-select"></select>
+      </div>
+      <div class="presentation-controls-actions">
+        <label class="presentation-toggle" for="adsToggle">
+          <input type="checkbox" id="adsToggle" checked />
+          <span>Ads</span>
+        </label>
+        <label class="presentation-toggle" for="callersToggle">
+          <input type="checkbox" id="callersToggle" checked />
+          <span>Callers</span>
+        </label>
+        <label class="presentation-toggle" for="lockToggle">
+          <input type="checkbox" id="lockToggle" checked />
+          <span>Lock</span>
+        </label>
+        <button id="fullscreenBtn" class="secondary fullscreen-btn" type="button">Enter Fullscreen</button>
+      </div>
+    </div>
+    <div class="presentation-main">
+      <div class="presentation-header">
+        <div class="presentation-header-room">
+          <div>
+            <h1 id="roomTitle">Room</h1>
+            <div id="roomDescription" class="presentation-room-desc">&nbsp;</div>
+          </div>
+        </div>
+        <div class="presentation-header-mc">
+          <p id="mcInfo" class="presentation-mc">&nbsp;</p>
+        </div>
+        <div class="presentation-header-meta">
+          <p id="currentTime" class="presentation-time"></p>
+        </div>
+      </div>
+      <div class="presentation-body">
+        <section class="schedule-column" id="scheduleColumn">
+          <ol id="eventQueue" class="event-queue"></ol>
+        </section>
+        <aside class="profile-panel" id="profilePanel" hidden>
+          <div class="profile-card">
+            <div class="profile-image-wrapper" id="profileImageWrapper">
+              <img id="profileImage" alt="" hidden />
+            </div>
+            <div class="profile-content-area">
+              <p id="profileCallerName" class="profile-name">&nbsp;</p>
+              <div id="profileContentWrapper" class="profile-content-wrapper" hidden>
+                <div id="profileContent" class="profile-content"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+    <script type="module" src="/static/js/presentation/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Organizer — Home</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfZ6NLZH3P2zpl0t1Ik5+pUvNbK/CtYFQki71R+xVQ1BM8DT6vKrrO5gkP7FpC18JNpDutQdN1Y4VZL+0Lr9kg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="nav-links">
+  <a href="/static/index.html" class="active">Home</a>
+      <a href="/presentation">Presentation</a>
+      <a href="/presentation/callers" data-visible-for="admin,caller">Caller Board</a>
+    </div>
+    <div class="nav-links">
+      <a href="#" id="logoutLink">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="page-wrapper">
+      <div class="page-layout">
+      <aside class="control-panel" aria-label="Filters and search">
+        <h2 class="control-panel__title">Refine Results</h2>
+        <div class="control-panel__section">
+          <label for="sortSelect">Sort</label>
+          <select id="sortSelect"></select>
+        </div>
+        <div class="control-panel__section">
+          <label for="filterSelect">Filter</label>
+          <select id="filterSelect"></select>
+        </div>
+        <div id="filterValueWrapper" class="control-panel__section">
+          <label for="filterValueContainer">Filter Value</label>
+          <div id="filterValueContainer"></div>
+        </div>
+        <div class="control-panel__section">
+          <label for="searchInput">Search</label>
+          <input type="text" id="searchInput" placeholder="Type to search" />
+        </div>
+        <div class="control-panel__actions" role="group" aria-label="Filter actions">
+          <button type="button" id="applyFiltersBtn" class="primary">Apply</button>
+          <button type="button" id="clearFiltersBtn" class="secondary">Clear</button>
+        </div>
+      </aside>
+      <main class="content-area">
+        <div class="tab-bar" role="tablist" aria-label="Select model">
+          <div class="tab-bar__tabs">
+            <button type="button" class="tab-bar__tab" data-view="mcs" role="tab" aria-selected="false" tabindex="-1">MC</button>
+            <button type="button" class="tab-bar__tab tab-bar__tab--active" data-view="rooms" role="tab" aria-selected="true" tabindex="0">Room</button>
+            <button type="button" class="tab-bar__tab" data-view="events" role="tab" aria-selected="false" tabindex="-1">Event</button>
+            <button type="button" class="tab-bar__tab" data-view="caller_cuers" role="tab" aria-selected="false" tabindex="-1">Caller/Cuer</button>
+            <button type="button" class="tab-bar__tab" data-view="profiles" role="tab" aria-selected="false" tabindex="-1">Profile</button>
+            <button type="button" id="createBtn" class="primary">Create Room</button>
+          </div>
+          <div class="tab-bar__actions">
+            <div class="dropdown" id="exportDropdown">
+              <button
+                type="button"
+                id="exportBtn"
+                class="secondary dropdown__trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="exportMenu"
+              >
+                Export
+              </button>
+              <div class="dropdown__menu" id="exportMenu" role="menu" aria-labelledby="exportBtn" hidden>
+                <button type="button" class="dropdown__item" data-export-format="pdf" role="menuitem">
+                  <span class="dropdown__item-title">Export as PDF</span>
+                  <span class="dropdown__description">Share or print a polished copy</span>
+                </button>
+                <button type="button" class="dropdown__item" data-export-format="excel" role="menuitem">
+                  <span class="dropdown__item-title">Export as Excel</span>
+                  <span class="dropdown__description">Analyze and customize the data</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="listContainer"></div>
+      </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Overlay for create/edit -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal" id="modalContent">
+      <h2 id="modalTitle">Create</h2>
+      <form id="modalForm"></form>
+      <div class="modal-actions">
+        <button type="button" id="cancelBtn" class="secondary">Cancel</button>
+        <button type="button" id="submitBtn" class="primary">Submit</button>
+        <span
+          id="submitSpinner"
+          class="submit-spinner"
+          role="status"
+          aria-live="polite"
+          aria-hidden="true"
+          hidden
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="/static/js/app/index.js"></script>
+</body>
+</html>

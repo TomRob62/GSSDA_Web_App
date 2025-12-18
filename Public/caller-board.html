@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Organizer — Caller Board</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body class="presentation-page caller-board-page">
+  <nav class="topbar">
+    <div class="nav-links">
+      <a href="/static/index.html">Home</a>
+      <a href="/presentation">Presentation</a>
+      <a href="/presentation/callers" class="active" data-visible-for="admin,caller">Caller Board</a>
+    </div>
+    <div class="nav-links">
+      <a href="#" id="logoutLink">Logout</a>
+    </div>
+  </nav>
+  <div class="container presentation-container caller-board-container">
+    <header class="caller-board-header">
+      <div>
+        <h1>Caller Lounge Board</h1>
+  <!-- summary removed intentionally -->
+      </div>
+      <div class="caller-board-header-meta">
+        <p id="currentTime" class="presentation-time"></p>
+        <div class="caller-board-actions">
+          <button id="fullscreenBtn" class="secondary fullscreen-btn" type="button">Enter Fullscreen</button>
+        </div>
+      </div>
+    </header>
+  <!-- board status removed -->
+    <ol id="callerEventList" class="caller-event-list"></ol>
+  </div>
+  <script type="module" src="/static/js/callerBoard/index.js"></script>
+</body>
+</html>

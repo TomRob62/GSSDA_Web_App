@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+gunicorn
+jinja2
+pydantic
+aiofiles
+python-multipart
+sqlalchemy
+openpyxl
+python-dotenv
+tzdata
+azure-identity
+azure-storage-blob
